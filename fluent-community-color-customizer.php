@@ -596,7 +596,7 @@ class FluentCommunityColorCustomizer {
         }
         
         $css = $this->generateThemeAwareCSS($customColors);
-        echo '<style type="text/css" id="fccc-custom-colors">' . wp_strip_all_tags($css) . '</style>' . "\n";
+        echo '<style type="text/css" id="fccc-custom-colors">' . $css . '</style>' . "\n";
     }
     
     public function outputBlockEditorCSS() {
@@ -607,7 +607,7 @@ class FluentCommunityColorCustomizer {
         }
         
         $css = $this->generateThemeAwareCSS($customColors, true);
-        echo '<style type="text/css" id="fccc-block-editor-colors">' . wp_strip_all_tags($css) . '</style>' . "\n";
+        echo '<style type="text/css" id="fccc-block-editor-colors">' . $css . '</style>' . "\n";
     }
     
     public function outputPortalCSS() {
@@ -618,7 +618,7 @@ class FluentCommunityColorCustomizer {
         }
         
         $css = $this->generateThemeAwarePortalCSS($customColors);
-        echo '<style type="text/css" id="fccc-portal-colors">' . wp_strip_all_tags($css) . '</style>' . "\n";
+        echo '<style type="text/css" id="fccc-portal-colors">' . $css . '</style>' . "\n";
     }
     
     private function generateThemeAwareCSS($customColors, $isBlockEditor = false) {
