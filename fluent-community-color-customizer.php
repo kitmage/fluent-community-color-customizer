@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FluentCommunity Color Customizer
  * Plugin URI: https://kitmage.com
- * Description: Provides admin control over FluentCommunity color palette without modifying core plugin files. Includes block editor integration.
+ * Description: Provides admin control over FluentCommunity's GUTENBERG BLOCK EDITOR color palette.
  * Version: 1.0.3
  * Author: KitMage
  * Author URI: https://kitmage.com
@@ -851,3 +851,4 @@ class FluentCommunityColorCustomizer {
 
 // Initialize the plugin
 FluentCommunityColorCustomizer::getInstance();
+
