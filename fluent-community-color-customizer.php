@@ -71,7 +71,7 @@ class FluentCommunityColorCustomizer {
     public function fluentCommunityNotActiveNotice() {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('FluentCommunity Color Customizer requires FluentCommunity plugin to be active.', 'fluent-community-color-customizer'); ?></p>
+            <p><?php esc_html_e('FluentCommunity Color Customizer requires FluentCommunity plugin to be active.', 'fluent-community-color-customizer'); ?></p>
         </div>
         <?php
     }
@@ -394,23 +394,23 @@ class FluentCommunityColorCustomizer {
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
             
             <div class="notice notice-info">
-                <p><?php _e('These color settings will override the default FluentCommunity color palette for both light and dark themes. Changes will be applied immediately after saving to both the frontend and block editor.', 'fluent-community-color-customizer'); ?></p>
+                <p><?php esc_html_e('These color settings will override the default FluentCommunity color palette for both light and dark themes. Changes will be applied immediately after saving to both the frontend and block editor.', 'fluent-community-color-customizer'); ?></p>
             </div>
             
             <div class="notice notice-warning">
-                <p><strong><?php _e('Known Issue:', 'fluent-community-color-customizer'); ?></strong> <?php _e('Colors selected in the block editor for Links may be overridden by the CSS for ".feed_md_content a". This is a known limitation of the current implementation.', 'fluent-community-color-customizer'); ?></p>
+                <p><strong><?php esc_html_e('Known Issue:', 'fluent-community-color-customizer'); ?></strong> <?php esc_html_e('Colors selected in the block editor for Links may be overridden by the CSS for ".feed_md_content a". This is a known limitation of the current implementation.', 'fluent-community-color-customizer'); ?></p>
             </div>
             
             <!-- Tab Navigation -->
             <div class="fccc-tabs">
                 <h2 class="nav-tab-wrapper">
                     <a href="#" class="nav-tab fccc-tab-button" data-tab="light">
-                        <?php _e('Light Theme', 'fluent-community-color-customizer'); ?>
-                        <span class="fccc-theme-indicator fccc-light-indicator"><?php _e('Light', 'fluent-community-color-customizer'); ?></span>
+                        <?php esc_html_e('Light Theme', 'fluent-community-color-customizer'); ?>
+                        <span class="fccc-theme-indicator fccc-light-indicator"><?php esc_html_e('Light', 'fluent-community-color-customizer'); ?></span>
                     </a>
                     <a href="#" class="nav-tab fccc-tab-button" data-tab="dark">
-                        <?php _e('Dark Theme', 'fluent-community-color-customizer'); ?>
-                        <span class="fccc-theme-indicator fccc-dark-indicator"><?php _e('Dark', 'fluent-community-color-customizer'); ?></span>
+                        <?php esc_html_e('Dark Theme', 'fluent-community-color-customizer'); ?>
+                        <span class="fccc-theme-indicator fccc-dark-indicator"><?php esc_html_e('Dark', 'fluent-community-color-customizer'); ?></span>
                     </a>
                 </h2>
             </div>
@@ -420,24 +420,24 @@ class FluentCommunityColorCustomizer {
                 
                 <!-- Light Theme Tab -->
                 <div id="fccc-tab-light" class="fccc-tab-content">
-                    <h3><?php _e('Light Theme Colors', 'fluent-community-color-customizer'); ?></h3>
-                    <p><?php _e('These colors will be used when FluentCommunity is in light theme mode.', 'fluent-community-color-customizer'); ?></p>
+                    <h3><?php esc_html_e('Light Theme Colors', 'fluent-community-color-customizer'); ?></h3>
+                    <p><?php esc_html_e('These colors will be used when FluentCommunity is in light theme mode.', 'fluent-community-color-customizer'); ?></p>
                     
                     <?php foreach ($lightDefaults as $key => $colorData): ?>
                         <?php 
                         $currentColor = isset($colors['light'][$key]) ? $colors['light'][$key] : $colorData['default'];
                         ?>
                         <div class="fccc-color-field">
-                            <label for="fccc_light_<?php echo $key; ?>">
+                            <label for="fccc_light_<?php echo esc_attr($key); ?>">
                                 <strong><?php echo esc_html($colorData['label']); ?></strong>
                             </label>
                             <br>
                             <input type="text" 
-                                   id="fccc_light_<?php echo $key; ?>"
-                                   name="fccc_custom_colors[light][<?php echo $key; ?>]" 
+                                   id="fccc_light_<?php echo esc_attr($key); ?>"
+                                   name="fccc_custom_colors[light][<?php echo esc_attr($key); ?>]" 
                                    value="<?php echo esc_attr($currentColor); ?>" 
                                    class="fccc-color-picker" 
-                                   data-color-key="<?php echo $key; ?>"
+                                   data-color-key="<?php echo esc_attr($key); ?>"
                                    data-theme="light" />
                             <?php if (!empty($colorData['description'])): ?>
                                 <div class="fccc-color-description"><?php echo esc_html($colorData['description']); ?></div>
@@ -448,24 +448,24 @@ class FluentCommunityColorCustomizer {
                 
                 <!-- Dark Theme Tab -->
                 <div id="fccc-tab-dark" class="fccc-tab-content">
-                    <h3><?php _e('Dark Theme Colors', 'fluent-community-color-customizer'); ?></h3>
-                    <p><?php _e('These colors will be used when FluentCommunity is in dark theme mode.', 'fluent-community-color-customizer'); ?></p>
+                    <h3><?php esc_html_e('Dark Theme Colors', 'fluent-community-color-customizer'); ?></h3>
+                    <p><?php esc_html_e('These colors will be used when FluentCommunity is in dark theme mode.', 'fluent-community-color-customizer'); ?></p>
                     
                     <?php foreach ($lightDefaults as $key => $colorData): ?>
                         <?php 
                         $currentColor = isset($colors['dark'][$key]) ? $colors['dark'][$key] : $darkDefaults[$key];
                         ?>
                         <div class="fccc-color-field">
-                            <label for="fccc_dark_<?php echo $key; ?>">
+                            <label for="fccc_dark_<?php echo esc_attr($key); ?>">
                                 <strong><?php echo esc_html($colorData['label']); ?></strong>
                             </label>
                             <br>
                             <input type="text" 
-                                   id="fccc_dark_<?php echo $key; ?>"
-                                   name="fccc_custom_colors[dark][<?php echo $key; ?>]" 
+                                   id="fccc_dark_<?php echo esc_attr($key); ?>"
+                                   name="fccc_custom_colors[dark][<?php echo esc_attr($key); ?>]" 
                                    value="<?php echo esc_attr($currentColor); ?>" 
                                    class="fccc-color-picker" 
-                                   data-color-key="<?php echo $key; ?>"
+                                   data-color-key="<?php echo esc_attr($key); ?>"
                                    data-theme="dark" />
                             <?php if (!empty($colorData['description'])): ?>
                                 <div class="fccc-color-description"><?php echo esc_html($colorData['description']); ?></div>
@@ -479,12 +479,12 @@ class FluentCommunityColorCustomizer {
             
             <!-- Light Theme Preview -->
             <div id="fccc-preview-light" class="fccc-preview-section" style="margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
-                <h3><?php _e('Light Theme Preview', 'fluent-community-color-customizer'); ?></h3>
+                <h3><?php esc_html_e('Light Theme Preview', 'fluent-community-color-customizer'); ?></h3>
                 <div class="fccc-color-swatches">
                     <?php foreach ($lightDefaults as $key => $colorData): ?>
                         <?php $currentColor = isset($colors['light'][$key]) ? $colors['light'][$key] : $colorData['default']; ?>
                         <div class="fccc-color-swatch">
-                            <div class="fccc-color-preview fccc-preview-light-<?php echo $key; ?>" 
+                            <div class="fccc-color-preview fccc-preview-light-<?php echo esc_attr($key); ?>" 
                                  style="background-color: <?php echo esc_attr($currentColor); ?>;"></div>
                             <small><strong><?php echo esc_html($colorData['label']); ?></strong><br><?php echo esc_html($currentColor); ?></small>
                         </div>
@@ -494,12 +494,12 @@ class FluentCommunityColorCustomizer {
             
             <!-- Dark Theme Preview -->
             <div id="fccc-preview-dark" class="fccc-preview-section" style="margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
-                <h3><?php _e('Dark Theme Preview', 'fluent-community-color-customizer'); ?></h3>
+                <h3><?php esc_html_e('Dark Theme Preview', 'fluent-community-color-customizer'); ?></h3>
                 <div class="fccc-color-swatches">
                     <?php foreach ($lightDefaults as $key => $colorData): ?>
                         <?php $currentColor = isset($colors['dark'][$key]) ? $colors['dark'][$key] : $darkDefaults[$key]; ?>
                         <div class="fccc-color-swatch">
-                            <div class="fccc-color-preview fccc-preview-dark-<?php echo $key; ?>" 
+                            <div class="fccc-color-preview fccc-preview-dark-<?php echo esc_attr($key); ?>" 
                                  style="background-color: <?php echo esc_attr($currentColor); ?>;"></div>
                             <small><strong><?php echo esc_html($colorData['label']); ?></strong><br><?php echo esc_html($currentColor); ?></small>
                         </div>
@@ -596,7 +596,7 @@ class FluentCommunityColorCustomizer {
         }
         
         $css = $this->generateThemeAwareCSS($customColors);
-        echo '<style type="text/css" id="fccc-custom-colors">' . $css . '</style>' . "\n";
+        echo '<style type="text/css" id="fccc-custom-colors">' . wp_strip_all_tags($css) . '</style>' . "\n";
     }
     
     public function outputBlockEditorCSS() {
@@ -607,7 +607,7 @@ class FluentCommunityColorCustomizer {
         }
         
         $css = $this->generateThemeAwareCSS($customColors, true);
-        echo '<style type="text/css" id="fccc-block-editor-colors">' . $css . '</style>' . "\n";
+        echo '<style type="text/css" id="fccc-block-editor-colors">' . wp_strip_all_tags($css) . '</style>' . "\n";
     }
     
     public function outputPortalCSS() {
@@ -618,7 +618,7 @@ class FluentCommunityColorCustomizer {
         }
         
         $css = $this->generateThemeAwarePortalCSS($customColors);
-        echo '<style type="text/css" id="fccc-portal-colors">' . $css . '</style>' . "\n";
+        echo '<style type="text/css" id="fccc-portal-colors">' . wp_strip_all_tags($css) . '</style>' . "\n";
     }
     
     private function generateThemeAwareCSS($customColors, $isBlockEditor = false) {
@@ -851,5 +851,3 @@ class FluentCommunityColorCustomizer {
 
 // Initialize the plugin
 FluentCommunityColorCustomizer::getInstance();
-
-
